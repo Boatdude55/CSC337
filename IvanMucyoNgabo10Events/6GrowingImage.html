@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <title> Growing Image Event </title>
+        <style type="text/css">
+        </style>
+    </head>
+    <body>
+        <h4>Click the image to see it grow.</h4>
+        
+        <img class="img" id="scaled-img" src="./critic.gif" alt="scaling photo">
+        <script type="text/javascript">
+            window.addEventListener("load", function () {
+                
+                var img = document.getElementById("scaled-img");
+                
+                img.addEventListener("click", function ( event ) {
+                    
+                    var h = event.target.height;
+                    var w = event.target.width;
+                    event.target.height = h + 10;
+                    event.target.width = w + 5;
+                    
+                });
+                
+            });
+        </script>
+    </body>
+</html>

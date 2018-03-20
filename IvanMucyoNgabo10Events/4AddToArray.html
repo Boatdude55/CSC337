@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <title> Add to Array </title>
+        <style type="text/css">
+            ol{
+                list-style-type: none;
+                counter-reset: names;
+                padding: 0px;
+            }
+            ol li::before {
+                counter-increment: names;
+                content:"" counter(names)": ";
+            }
+        </style>
+    </head>
+    <body>
+        <p>Enter a name:<input type="text" id="name" data-dest="array-container"></p>
+        <p>The array of names:</p>
+        
+        <ol id="array-container">
+            
+        </ol>
+        <script>
+            
+            function addToArray ( event ) {
+                console.log(event)
+                var format = [
+                    "<li>",
+                    "</li>"
+                    ];
+                if ( event.key === "Enter" ) {
+                    
+                    var dest = document.getElementById(event.target.dataset['dest']);
+                    var name = event.target.value;
+                    event.target.value = "";
+                    dest.innerHTML += format[0] + name + format[1];
+                    
+                }
+            }
+            window.addEventListener("load", function () {
+
+                var src = document.getElementById("name");
+                
+                src.addEventListener("keypress", addToArray);
+            });
+        </script>
+    </body>
+</html>

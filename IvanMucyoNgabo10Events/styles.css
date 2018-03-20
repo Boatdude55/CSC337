@@ -1,0 +1,50 @@
+.info{
+    text-align: center;
+    background-color: rgb(0,0,255);
+    color: rgb(255,255,255);
+}
+.btn{
+    border: solid 2px;
+    background-color: rgb(190,190,190);
+    border-style: outset;
+    text-align: left;
+    font-size: 12pt;
+}
+.content-container{
+    width: 100%;
+    height: 550px;
+    overflow: hidden;
+}
+.header{
+    height: 5%;
+}
+.footer{
+    height: 5%;
+}
+.flex-container{
+    height: 90%;
+    display: flex;
+    flex-direction: row;
+}
+.nav-container{
+    width: 20%;
+    background-color: rgb(200,200,200);
+}
+.nav-content{
+    list-style-type: none;
+    padding-left: 0px;
+}
+.nav-content li{
+    width: 80%;
+    height: 10%;
+    margin: 10px 10px 10px 5px;
+}
+.iframe-container{
+    width: 80%;
+    overflow: hidden;
+}
+.main-content{
+    border: hidden 0px;
+    height: 100%;
+    width: 100%;
+}

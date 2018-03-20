@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <link rel="stylesheet" href="./styles.css" type="text/css" />
+        <script type="text/javascript">
+            function addEventListeners ( nodeList, type, callback ) {
+                
+                try{
+                    for ( var i = 0; i < nodeList.length; i++ ) {
+                        
+                        nodeList.item(i).addEventListener( type, callback );
+                        
+                    }
+                } catch (err) {
+                    console.log( err.name, err.message );
+                }
+            }
+            
+            function setFrame ( event ) {
+
+                var dest = document.getElementById("content");
+                var src = event.target.dataset['src'];
+
+                if ( typeof src === "string" ) {
+                    
+                    dest.src = src;
+                    
+                }else {
+                    
+                    console.log("src is not valid string");
+                }
+            }
+            window.addEventListener("load", function () {
+                
+                
+                var navBtns = document.getElementsByClassName("btn");
+        
+                addEventListeners( navBtns , 'click' , setFrame );
+                
+            });
+        </script>
+        <title> Event Driven JS </title>
+    </head>
+    <body>
+        <div class="content-container">
+            
+            <div class="header info">
+                Using JavaScript to Change the HTML
+            </div>
+            
+            <div class="body-container flex-container">
+                <nav class="nav-container">
+                    <ul class="nav-content">
+                        <li><button class="btn" data-src="./0Calculator.html">0) Calculator</button></li>
+                        <li><button class="btn" data-src="./1HideShow.html">1) Hide / Show</button></li>
+                        <li><button class="btn" data-src="./2Change7Styles.html">2) Change 7 Styles</button></li>
+                        <li><button class="btn" data-src="./3MoveText.html">3) Move Text</button></li>
+                        <li><button class="btn" data-src="./4AddToArray.html">4) Add to Array</button></li>
+                        <li><button class="btn" data-src="./5OverOut.html">5) Over Out</button></li>
+                        <li><button class="btn" data-src="./6GrowingImage.html">6) Growing Image</button></li>
+                        <li><button class="btn" data-src="./7PixelIncrease.html">7) Pixel Increase</button></li>
+                        <li><button class="btn" data-src="./8RunningSum.html">8) Running Sum</button></li>
+                        <li><button class="btn" data-src="./9Stack.html">9) Stack</button></li>
+                    </ul>
+                </nav>
+                <div class="iframe-container">
+                    <iframe class="main-content" id="content" src="./intro.html">
+                        
+                    </iframe>
+                </div>
+            </div>
+            <div class="footer info">
+                Ivan Mucyo Ngabo
+            </div>
+        </div>
+    </body>
+</html>

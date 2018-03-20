@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <title> Hide and Show Event </title>
+        <style>
+            .btn{
+                width: 50px;
+                height: 25px;
+                font-size: 10pt;
+                background-color: rgb(180, 180, 180);
+                border: solid 2px;
+                border-color: rgb(200,200,200);
+                border-style: outset;
+                margin: 10px;
+            }
+        </style>
+    </head>
+    <body>
+        <div class="content-container">
+            <button class="btn" id="toggle" data-toggle="toggledText">Hide</button>
+            <p class="text" id="toggledText">This text will appear and disappear.</p>
+        </div>
+        
+        <script type="text/javascript">
+            
+            function toggleElem ( event ) {
+                
+                var id = event.target.dataset['toggle'];
+                var dest = document.getElementById(id);
+                
+                if ( dest.style.visibility === "hidden" ) {
+                    
+                    dest.style.visibility = "visible";
+                }else {
+                    dest.style.visibility = "hidden";
+                }
+                
+            }
+            window.addEventListener("load", function () {
+               
+                var btn = document.getElementById("toggle");
+                
+                btn.addEventListener("click", toggleElem );
+                
+            });
+        </script>
+    </body>
+</html>

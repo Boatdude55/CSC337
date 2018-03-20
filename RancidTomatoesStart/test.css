@@ -1,0 +1,120 @@
+html{
+    height: 100%;
+    width: 100%;
+    overflow-x: hidden;
+    padding: 0px;
+    margin: 0px;
+}
+body{
+	height: 100%;
+	width: 100%;
+	background-color: rgb(200,200,165);
+	margin: 0px;
+	padding: 0px;
+}
+
+.row-10h{
+    height: 10%;
+}
+.row-80h{
+    height: 80%;
+}
+.row-100h{
+    height: 100%;
+}
+.row-90h{
+    height: 90%;
+}
+.col-left{
+   float: left;
+}
+.col-right{
+   float: right;
+}
+.col-50w-100h{
+    width: 50%;
+    height: 100%;
+}
+.col-40w{
+    width: 40%;
+}
+.col-60w{
+    width: 60%;
+}
+.no-margin{
+    margin: 0px;
+}
+.margin-center{
+    margin: 0px auto;
+}
+.float-parent{
+    overflow: hidden;
+    width: 100%;
+}
+.round-border{
+    border-radius: 20px;
+    border: solid 1px;
+}
+
+
+
+.header{
+    height: 10%;
+    width: 100%;
+}
+.header img{
+    height: 100%;
+    width: 100%;
+}
+
+.title{
+ text-shadow: rgb(100,100,100) 2px 2px;	
+ text-align: center;
+ font-family: Georgia, Times New Roman;
+}
+
+
+.main-container{
+    width: 70%;
+}
+.review-img { /* Align text to images */
+	float: left;
+	margin-right: 5px;
+	font
+}
+.review-banner{
+    color: rgb(255,0,0);
+    font-size: 50pt;
+}
+.review-banner{
+    background-image: url("./images/rottenlargebg.png");
+    background-repeat: repeat-x;
+}
+
+.review-container{
+	background-color: rgb(200, 200, 200);
+	font-family: Georgia, Times;
+	font-size: 10pt;
+}
+.review{
+	background-color: rgb(255, 255, 255);
+	border-color: rgb(150, 150, 150);
+	border-radius: 10px;
+    border: solid 2px;
+	margin-left: 5px;
+	margin-right: 10px;
+	padding: 5px;
+	min-height: 25px;
+}
+
+.overview-text{
+    font-family: sans-serif;
+    font-size: 12pt;
+    background-color: rgb(100,170,100);
+}
+.overview-text dt{
+    font-weight: bold;
+}
+.overview-text dd{
+    margin-bottom: 5px;
+}

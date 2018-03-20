@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <title> Font Increment Event </title>
+    </head>
+    <body>
+        <button id="increment-click" data-target="increased-elem">Increment by 1px</button>
+        
+        <p id="increased-elem">Increase my point size by 1px each click</p>
+        
+        <script type="text/javascript">
+            
+            window.addEventListener("load", function () {
+               
+               var base = 16;
+               var incrBtn = document.getElementById("increment-click");
+               
+               incrBtn.addEventListener("click", function ( event ) {
+                   base++;
+                   var elem = document.getElementById(event.target.dataset["target"]);
+                   elem.style.fontSize = (base).toString() + "px";
+               });
+            });
+        </script>
+    </body>
+</html>

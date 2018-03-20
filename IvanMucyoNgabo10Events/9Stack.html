@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <title> Stack </title>
+        <style type="text/css">
+            ol{
+                list-style-type: disc;
+            }
+            div{
+                padding: 15px;
+            }
+            div button{
+                margin-left: 5px;
+            }
+            div p{
+                margin: 0px;
+                float: left;
+            }
+            
+        </style>
+    </head>
+    <body>
+        <div>
+            <p>Push <input type="text" id="input" data-dest="array-container"></p><button id="pop-btn" data-target="array-container">Pop</button>
+        </div>
+        <ol id="array-container">
+            
+        </ol>
+        <script>
+            
+            function pushList ( event ) {
+                
+                var base = document.createElement('li');
+                
+                if ( event.key === "Enter" ) {
+                    
+                    var dest = document.getElementById(event.target.dataset['dest']);
+                    var str = event.target.value;
+                    event.target.value = "";
+                    var text = document.createTextNode(str);
+                    base.appendChild(text);
+                    dest.insertBefore( base, dest.firstChild );
+                    
+                }
+            }
+            
+            function popList ( event ) {
+                
+                var array = document.getElementById(event.target.dataset["target"]);
+                
+                array.removeChild(array.firstChild);
+            }
+            window.addEventListener("load", function () {
+
+                var src = document.getElementById("input");
+                var popBtn = document.getElementById("pop-btn");
+                
+                src.addEventListener("keypress", pushList);
+                popBtn.addEventListener("click", popList);
+            });
+        </script>
+    </body>
+</html>

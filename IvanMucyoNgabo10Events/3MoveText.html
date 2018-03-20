@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <title> Move Text </title>
+    </head>
+    <body>
+        <input id="left-input" type="text" value="Move me"><button id="move-btn" data-src="left-input" data-target="right-input">>> Move left to right >></button><input id="right-input" type="text">
+        <script type="text/javascript">
+            
+            function move ( event ) {
+                
+                var src = document.getElementById(event.target.dataset["src"]);
+                var dest = document.getElementById(event.target.dataset["target"]);
+                
+                dest.value = src.value;
+                src.value = '';    
+            
+            }
+            window.addEventListener("load", function () {
+               
+                var moveBtn = document.getElementById("move-btn");
+                
+                moveBtn.addEventListener("click", move);
+            });
+        </script>
+    </body>
+</html>

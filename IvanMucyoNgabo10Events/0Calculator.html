@@ -1,0 +1,129 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <title> Eventful Calculator</title>
+        <style type="text/css">
+        .result-container{
+            width: 300px;
+            margin-top: 20px;
+        }
+        .varible-container{
+            margin: 0px;
+            font-size: 12pt;
+        }
+        .varible-input{
+            width: 80px;
+            margin: 5px;
+        }
+        .btn{
+            border-radius: 5px;
+            width: 100px;
+        }
+        .expression-block{
+            background-color: rgb(0,0,0);
+            border: solid 5px;
+            border-color: rgb(255,0,0);
+            padding: 10px;
+        }
+        .expression{
+            font-family: courier;
+            color: rgb(255,255,255);
+            font-size: 12pt;
+        }
+        .error{
+            margin: 0px auto;
+            color: rgb(255,255,255);
+        }
+        </style>
+    </head>
+    <body>
+        <h4>Calclator</h4>
+        
+        <p class="varible-container" >x<input class="varible-input" type="text" id="x-var"></p>
+        <p class="varible-container" >y<input class="varible-input" type="text" id="y-var"></p>
+        <button class="btn" id="result-btn">Show results</button>
+        
+        <div class="result-container" id="result">
+            Results will be shown here
+        </div>
+    <script type="text/javascript">
+    
+      window.addEventListener("load", function () { 
+          
+        var xVar = document.getElementById("x-var");
+        var yVar = document.getElementById("y-var");
+        
+        var resultBtn = document.getElementById("result-btn");
+        var resultsArea = document.getElementById("result");
+        
+        resultBtn.addEventListener("click", function () {
+            
+            var l = xVar.value;
+            var r = yVar.value;
+
+            var newDiv = formatOutput( l, r );
+    
+            resultsArea.innerHTML =  newDiv;
+        });
+        
+        function formatOutput ( operandL, operandR ) {
+            
+            function evaluate ( operand1 , operand2, operator ) {
+                
+                var result = 0;
+
+                switch ( operator ) {
+                    
+                    case ' + ': result =  operand1 + operand2;
+                        break;
+                    case ' - ': result = operand1 - operand2;
+                        break;
+                    case ' * ': result = operand1 * operand2;
+                        break;
+                    case ' / ': result = operand1 / operand2;
+                        break;
+                    case ' % ': result = operand1 % operand2;
+                        break;
+                    default: 
+                        break;
+                }
+                
+                return result;
+                
+            }
+            
+            var operations = [' + ', ' - ', ' * ', ' / ', ' % '];
+            var block = ["<div class='expression-block'>","</div>"];
+            var expLine = ["<div class='expression'>","</div>"];
+            var err = "<div class='error'>Invalid expression!(Numbers only)</div>";
+            
+            var html = block[0];
+            var x = parseFloat(operandL);
+            var y = parseFloat(operandR);
+            
+            if ( !isNaN(x) && !isNaN(y) ) {
+   
+                for ( var i = 0; i < operations.length; i++ ) {
+                    
+                    var newBlock = expLine[0];
+                    newBlock += operandL + operations[i] + operandR;
+                    newBlock += "  =  " + evaluate( x, y, operations[i] );
+                    newBlock += expLine[1];
+                    html += newBlock;
+
+                }
+
+            } else {
+                
+                html += err;
+                
+            }
+            html += block[1];
+            return html;
+        }
+        
+      }); 
+    </script>
+    </body>
+</html>

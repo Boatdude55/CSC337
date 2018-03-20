@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <title> Change 7 Styles </title>
+        <style>
+            .first{
+                font: 24px;
+                border: solid 5px;
+                border-color: rgb(255,0,0);
+                width: 300px;
+                float: right;
+                padding: 50px;
+                background-color: rgb(200,200,200);
+            }
+        </style>
+    </head>
+    
+    <body>
+        <h2 id="clickable-text">Click this text</h2>
+        <hr>
+        <div id="mutable-text">Click "Click this text" above to change this div in several ways </div>
+        <script type="text/javascript">
+            
+            window.addEventListener("load", function () {
+                
+                var textBtn = document.getElementById("clickable-text");
+                var text = document.getElementById("mutable-text");
+    
+                console.log(text.attributes);
+                
+                textBtn.addEventListener("click", function () {
+                    /*
+                    var styles = {
+                        'font': '24px',
+                        'border': 'solid 5px',
+                        'borderColor': 'rgb(255,0,0)',
+                        'width': '300px',
+                        'float': 'right',
+                        'padding': '50px',
+                        'backgroundColor': 'rgb(200,200,200)'
+                    };
+                    for ( var property in styles ) {
+                        
+                        text.setAttribute( property , styles[property]);
+
+                    }
+                    */
+                    text.className = "first";
+                });
+            });
+        </script>
+    </body>
+</html>

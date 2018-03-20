@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <title> Hovering Event </title>
+        <style type="text/css">
+            .text{
+                background-color: rgb(255,200,200);
+                border: solid 3px;
+                border-color: rgb(255,0,0);
+                margin: 15px;
+                width: 150px;
+                height: 25px;
+                text-align: center;
+            }
+            .text p{
+                position: relative;
+                top: 25%;
+                margin: 0px auto;
+            }
+        </style>
+    </head>
+    <body>
+        <div class="text" id="mouse-text" data-target="toggled-text" data-count="mouse-count"><p>Hover over Me</p></div>
+        <div class="text" id="toggled-text"><p id="mouse-count"></p></div>
+        <script type="text/javascript">
+            
+            var counter = 0;
+            
+            function toggleAndState ( event ) {
+                
+                var states = ['Entered ',  'Exited ',' events',];
+                var dest = document.getElementById(event.target.dataset["target"]);
+                
+                if( event.type === "mouseenter"){
+                    counter++;
+                    dest.innerHTML = states[0] + (counter) + states[2];
+                }else {
+                    dest.innerHTML = states[1] + counter + states[2];
+                }
+                
+            }
+            window.addEventListener("load", function () {
+               
+               var mouse = document.getElementById("mouse-text");
+               //var mouseState = document.getElementById("toggled-text");
+               
+               mouse.addEventListener("mouseenter" , toggleAndState);
+               
+               mouse.addEventListener("mouseleave" , toggleAndState);
+            });
+        </script>
+    </body>
+</html>

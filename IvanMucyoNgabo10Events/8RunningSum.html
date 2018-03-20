@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title> Running Sum </title>
+    </head>
+    <body>
+        <p>Enter a number:<input type="text" id="number" data-dest="array-content" ></p>
+        <p>sum of [<span id="array-content" data-dest="summation"></span>] =<span id="summation"></span></p>
+        
+    <script type="text/javascript">
+        function addToArray ( event ) {
+        
+            if ( event.key === "Enter" ) {
+                
+                var dest = document.getElementById(event.target.dataset['dest']);
+                var number = event.target.value;
+                var sumDest = document.getElementById(dest.dataset["dest"]);
+
+                event.target.value = '';
+                if ( dest.innerHTML == '') {
+                    dest.innerHTML += number;
+                }else{
+                    dest.innerHTML +=  ' ,' + number;
+                }
+                
+                var arraySum = sumString( dest.innerHTML );
+                sumDest.innerHTML = arraySum;
+            }
+        }
+        
+        function sumString ( str ) {
+            
+            var numArray = str.split(',');
+            var sum = 0;
+            
+            for ( var i = 0; i < numArray.length; i++ ) {
+                
+                sum += parseFloat(numArray[i]);
+            }
+            
+            return sum;
+        }
+        window.addEventListener("load", function () {
+            
+            var numInput = document.getElementById("number");
+            
+            numInput.addEventListener("keypress", addToArray)
+        })
+    </script>
+    </body>
+</html>
